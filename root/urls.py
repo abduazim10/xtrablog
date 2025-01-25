@@ -19,6 +19,7 @@ from django.urls import path
 from blogs.views import blog_page, about_page, contact_page, blog_detail_page
 from django.conf import settings
 from django.conf.urls.static import static
+from root.settings import DEBUG
 
 urlpatterns = [
     path('admin/', admin.site.urls),

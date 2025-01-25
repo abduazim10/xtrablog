@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .models import Blog, BlogImage, Category, Comment
 from django.shortcuts import get_object_or_404
 # Create your views here.
@@ -27,8 +27,20 @@ def blog_detail_page(request, blog_id):
     comment = Comment.objects.filter(blog_id=blog_id)
     kategoriyalar = Category.objects.all()
 
-    if request.method == "post":
-        pass
+    if request.method == "POST":
+        full_name = request.POST.get('name') 
+        phone_number = request.POST.get('number')  
+        text = request.POST.get('message')  
+
+ 
+        Comment.objects.create(
+            full_name=full_name,
+            phone_number=phone_number,
+            text=text,
+            blog_id=blog
+        )
+        return redirect('blog_detail', blog_id=blog_id)
+
     # birinchi_rasm = 
     # ikkinchi_rasm = 
     context = {

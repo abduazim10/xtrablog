@@ -24,6 +24,10 @@
                         <span class="tm-color-primary">{{ blog.created_at|date:"F d, Y" }}</span>
                     </div>
                     <hr>
+                    <div class="d-flex justify-content-between">
+                        <span>{{blog.get_count_comments}}comments</span>
+                        <span>by Admin Abduazim</span>
+                    </div>
                 </article>
                 {% endfor %}
                 
